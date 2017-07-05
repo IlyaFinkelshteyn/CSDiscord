@@ -48,3 +48,6 @@ environment:
     secure: GroejrzfkoqNfBomrM4kTrBhT9PoueDewcScZe81dYrqU42xc4WRH2gbNib7wDTz
   CLI_VERSION: 2.0.0-preview2-006497
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
